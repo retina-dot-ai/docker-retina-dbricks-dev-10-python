@@ -8,7 +8,7 @@ ARG PYTHON_MINOR_VERSION=3.7
 # install the latest python version
 # https://tecadmin.net/install-python-3-7-on-ubuntu-linuxmint/
 RUN apt-get update \
-  && apt-get install --yes \
+  && apt-get install --yes --no-install-recommends \
     wget \
     build-essential checkinstall \
     libreadline-gplv2-dev \
