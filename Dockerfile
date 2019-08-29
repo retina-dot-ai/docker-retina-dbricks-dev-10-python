@@ -5,6 +5,12 @@ MAINTAINER "Brad Ito" brad@retina.ai
 ARG PYTHON_VERSION=3.7.4
 ARG PYTHON_MINOR_VERSION=3.7
 
+# install python2.7 for compatibility with FUSE for DBFS
+# https://github.com/databricks/containers/tree/master/ubuntu/dbfsfuse
+RUN apt-get update \
+  && apt-get install --yes --no-install-recommends \
+    python2.7
+
 # install the latest python version
 # https://tecadmin.net/install-python-3-7-on-ubuntu-linuxmint/
 RUN apt-get update \
