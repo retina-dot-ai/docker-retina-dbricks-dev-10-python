@@ -34,7 +34,14 @@ RUN update-alternatives \
   pip /usr/local/bin/pip$PYTHON_MINOR_VERSION 3
 ENV PYSPARK_PYTHON=/usr/local/bin/python$PYTHON_MINOR_VERSION
 
-#TODO install python packages
+# use pipenv to install python packages
+RUN pip install --upgrade pip \
+  && pip install pipenv
+
+COPY Pipfile /tmp/Pipfile
+COPY Pipfile.lock /tmp/Pipfile.lock
+RUN cd /tmp \
+  && pipenv install --verbose --system
 
 # cleanup
 RUN apt-get autoremove -y \
