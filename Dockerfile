@@ -16,6 +16,7 @@ RUN apt-get update \
 RUN apt-get update \
   && apt-get install --yes --no-install-recommends \
     wget \
+    ca-certificates \
     build-essential checkinstall \
     libreadline-gplv2-dev \
     libncursesw5-dev libssl-dev \
